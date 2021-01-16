@@ -1,35 +1,13 @@
-# Apress Source Code and Appendix
+# The Common Lisp Condition System - companion code
 
-This repository accompanies [*The Common Lisp Condition System*](https://www.apress.com/9781484261330) by Michał "phoe" Herda (Apress, 2020).
+This is a repository containing companion code for the book *The Common Lisp Condition System*.
 
-[comment]: #cover
-![Cover image](9781484261330.jpg)
+The code is structured in folders, one folder for each topic mentioned in the book. Each Lisp file in each folder is a single-package self-contained snapshot showing the state of the code we create in our book at each stage of its writing. The symbols exported from each package are test functions that can be executed to demonstrate the behaviour of code at that particular moment in the book; example output of each test function is placed in the comments of each source file.
 
-The sources are split into sources for the first part of the book and the appendices (the [`Sources - TCLCS`](Sources%20-%20TCLCS/) folder) and sources for Portable Condition System (PCS, the [`Sources - PCS`](Sources%20-%20PCS/) folder). Note that the sources for PCS are for version 1.1.0 of the library and will not be updated here; for contributing to PCS, please see [the main repository of the project](https://github.com/phoe/portable-condition-system).
+This system depends on [`trivial-custom-debugger`](https://github.com/phoe/trivial-custom-debugger) for installing a custom debugger function in place of the system-provided one.
 
-The [`Appendix E`](Appendix%20E) folder contains **Appendix E - Discussing the Common Lisp Condition System**, an online-only appendix that contains additional material for Chapter 4 of the book that did not make it into the final text due to time constraints.
+`(ql:quickload :tclcs-code)` will load this system from Quicklisp.
 
-Download the files as a zip using the green button, or clone the repository to your machine using Git.
+The code for the second part of the book has been adapted from the [Portable Condition System](https://github.com/phoe/portable-condition-system) and is therefore not included here. Please see the CLCS repository for an updated and extended version of the code included in the book.
 
-## Online discussions about the book
-
-* [2020-07-15 - Hacker News](https://news.ycombinator.com/item?id=23843525)
-* [2020-10-23 - Hacker News](https://news.ycombinator.com/item?id=24867548)
-
-(If you're aware of any other discussions, please feel free to make a PR and add it.)
-
-## Releases
-
-Release v1.0 corresponds to the code in the published book, without corrections or updates.
-
-## License
-
-The source code for TCLCS is licensed under the CC0 license and placed in the public domain.
-
-The source code for Portable Condition System is licensed under the CC0 license and placed in the public domain, except for the test suite, which is licensed under the MIT license. Please see the `README` and `LICENSE` files in the respective subfolders of this repository for details.
-
-Appendix E as a whole is licensed under the CC0 license and placed in the public domain.
-
-## Contributions
-
-See the file [Contributing.md](Contributing.md) for more information on how you can contribute to this repository.
+The original code for implementations of dynamic variables in C has been contributed by [Marco Heisig](https://github.com/marcoheisig), [Michael Raskin](https://gitlab.common-lisp.net/mraskin), and [Gilbert Baumann](http://clim.rocks/).
