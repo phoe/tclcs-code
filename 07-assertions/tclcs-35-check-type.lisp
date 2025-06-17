@@ -16,19 +16,19 @@
       (type-error () :oops))))
 
 (defun test-3 ()
-  (let ((x "42"))
-    (handler-bind ((type-error (lambda (condition)
-                                 (declare (ignore condition))
-                                 (store-value 42))))
-      (check-type x integer)
-      x)))
+  (eval `(let ((x "42"))
+           (handler-bind ((type-error (lambda (condition)
+                                        (declare (ignore condition))
+                                        (store-value 42))))
+             (check-type x integer)
+             x))))
 
 (defun test-4 ()
-  (let ((x 24))
-    (handler-case (check-type x (eql 42) "the ultimate answer to everything")
-      (type-error (condition)
-        (let ((*print-escape* nil))
-          (format t ";; ~W~%" condition))))))
+  (eval `(let ((x 24))
+           (handler-case (check-type x (eql 42) "the ultimate answer to everything")
+             (type-error (condition)
+               (let ((*print-escape* nil))
+                 (format t ";; ~W~%" condition)))))))
 
 #|
 
